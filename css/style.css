@@ -74,6 +74,18 @@ body[data-screen]:not([data-screen="home"]) #slash{
   padding:2px 8px;margin-right:6px;font-weight:700;transform:skewX(-8deg);
   border-radius:2px;
 }
+#music-toggle{
+  appearance:none;display:inline-flex;align-items:center;justify-content:center;
+  position:fixed;top:auto;left:auto;right:26px;bottom:48px;z-index:5;
+  width:auto;min-width:0;
+  border:2px solid var(--white);background:var(--black);color:var(--white);
+  padding:7px 12px;cursor:pointer;
+  font:700 12px 'Archivo Black','Arial Black',Impact,sans-serif;
+  letter-spacing:.12em;transform:skewX(-8deg);
+}
+#music-toggle:hover,#music-toggle:focus-visible{
+  outline:none;background:var(--white);color:var(--black);
+}
 #stage{flex:1;position:relative;overflow:hidden;}
 
 /* ============ SCREENS ============ */
@@ -517,6 +529,7 @@ body.has-art-home #big-name .ch:not(.box):not(.boxw){
 @media (max-width:700px){
   .skill-row .name{width:130px;font-size:14px;}
   #hud-bottom{font-size:11px;gap:12px;flex-wrap:wrap;}
+  #music-toggle{right:14px;bottom:12px;}
   .grid{
   display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));
   gap:26px 34px;padding-top:14px;
