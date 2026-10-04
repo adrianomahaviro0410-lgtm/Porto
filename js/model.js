@@ -97,16 +97,16 @@ const Model = {
   skills: [
     { group: "Security & Pentesting", items: [
       ["OWASP MASVS · CVSS v3.1", 96], ["SAST · DAST", 94],
-      ["Burp Suite · Frida", 92], ["APK Reverse Engineering", 90],
-      ["Root & SSL Pinning Bypass", 86], ["API Mapping & Analysis", 88],
+      ["Burp Suite", 80], ["APK Reverse Engineering", 80],
+      ["Root & SSL Pinning Bypass", 80], ["Server And Network Administration(AntiViruses)", 95],
     ]},
     { group: "Web & App Security", items: [
       ["Android Security Testing", 94], ["Web API Pentesting", 90],
       ["Mobile App Threat Modeling", 88], ["Network Vulnerability Assessment", 86],
-      ["Intent Filter & Transport Security Review", 84], ["Malware & Reverse Engineering", 80],
+      ["Frida Scripting", 84], ["Smali Reading", 90],
     ]},
     { group: "Programming & Data", items: [
-      ["Python", 92], ["C", 80],
+      ["Python", 80], ["C", 90],
       ["SQL · MariaDB · MySQL", 84], ["Kali Linux · Ubuntu", 90],
       ["Biopython · Matplotlib", 78], ["DevSecOps Pipelines", 74],
     ]},
