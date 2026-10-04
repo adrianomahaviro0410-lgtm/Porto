@@ -110,9 +110,30 @@ const Controller = {
   },
 
   bindAudioUnlock() {
-    const unlock = () => { this.audioUnlocked = true; };
+    const unlock = event => {
+      if (this.audioUnlocked) return;
+      this.audioUnlocked = true;
+      if (event.target !== View.els.musicToggle) this.playMusic();
+    };
     addEventListener("pointerdown", unlock, { once: true, capture: true });
     addEventListener("keydown", unlock, { once: true, capture: true });
+    View.els.musicToggle.addEventListener("click", () => {
+      this.audioUnlocked = true;
+      if (View.els.bgm.paused) this.playMusic();
+      else {
+        View.els.bgm.pause();
+        View.setMusicState("paused");
+      }
+    });
+  },
+
+  playMusic() {
+    View.els.bgm.play()
+      .then(() => View.setMusicState("playing"))
+      .catch(error => {
+        View.setMusicState("unavailable");
+        console.error("Background music could not be played:", error);
+      });
   },
 
   /* ---------- Input bindings ---------- */
