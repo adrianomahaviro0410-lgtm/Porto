@@ -29,7 +29,7 @@ const View = {
     this.els.menuItems = [...document.querySelectorAll(".menu-item")];
     document.querySelectorAll("[data-ransom]").forEach(el => this.ransomize(el));
     this.els.sfx.volume = 0.45;
-    this.els.bgm.volume = 0.10;
+    this.els.bgm.volume = 0.05;
     this.startClock();
     this.startParallax();
     this.startCursor();
