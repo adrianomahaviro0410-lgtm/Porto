@@ -16,6 +16,8 @@ const View = {
     repoStatus: document.getElementById("repo-status"),
     skillsBody: document.getElementById("skills-body"),
     sfx:        document.getElementById("sfx-select"),
+    bgm:        document.getElementById("bgm"),
+    musicToggle: document.getElementById("music-toggle"),
     cursor:     document.getElementById("cursor"),
     clock:      document.getElementById("clock"),
   },
@@ -27,6 +29,7 @@ const View = {
     this.els.menuItems = [...document.querySelectorAll(".menu-item")];
     document.querySelectorAll("[data-ransom]").forEach(el => this.ransomize(el));
     this.els.sfx.volume = 0.45;
+    this.els.bgm.volume = 0.10;
     this.startClock();
     this.startParallax();
     this.startCursor();
@@ -87,6 +90,19 @@ const View = {
   },
 
   /* ---------- Sound ---------- */
+  setMusicState(state) {
+    const isPlaying = state === "playing";
+    const isUnavailable = state === "unavailable";
+    this.els.musicToggle.textContent = isUnavailable
+      ? "MUSIC: ERROR"
+      : `MUSIC: ${isPlaying ? "ON" : "OFF"}`;
+    this.els.musicToggle.setAttribute("aria-pressed", String(isPlaying));
+    this.els.musicToggle.setAttribute(
+      "aria-label",
+      isUnavailable ? "Background music unavailable" : `${isPlaying ? "Pause" : "Play"} background music`
+    );
+  },
+
   playSelect() {
     try {
       this.els.sfx.currentTime = 0;
